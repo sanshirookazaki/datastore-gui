@@ -15,6 +15,7 @@ import (
 )
 
 var (
+	port             = flag.String("port", "", "PORT")
 	projectID        = flag.String("projectID", "", "PROJECT_ID")
 	dsHost           = flag.String("dsHost", "", "DATASTORE_EMULATOR_HOST")
 	responseEntities = []map[string]interface{}{}
@@ -32,8 +33,8 @@ func main() {
 	router.GET("/", Index)
 	router.ServeFiles("/index/*filepath", http.Dir("./client/dist"))
 
-	log.Printf("start: PROJECT_ID=%s, DATASTORE_EMULATOR_HOST=%s", *projectID, *dsHost)
-	log.Fatal(http.ListenAndServe(":8080", router))
+	log.Printf("start: PORT=%s, PROJECT_ID=%s, DATASTORE_EMULATOR_HOST=%s", *port, *projectID, *dsHost)
+	log.Fatal(http.ListenAndServe(":"+*port, router))
 }
 
 func Index(w http.ResponseWriter, r *http.Request, _ httprouter.Params) {

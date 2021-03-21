@@ -117,7 +117,7 @@ function Index() {
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
 
   const Axios = axios.create({
-    baseURL: "http://localhost:8080",
+    baseURL: "http://localhost:" + process.env.PORT,
   });
 
   const selectNamespace = (namespace: string) => {

@@ -4,10 +4,11 @@ services:
   datastore-gui:
     image: 346o/datastore-gui:latest
     ports:
-      - 8080:8080
+      - 3000:3000 # PORT:PORT
     environment:
       - PROJECT_ID=${PROJECT_ID}
       - DATASTORE_EMULATOR_HOST=datastore:8081
+      - PORT=3000
 
   datastore:
     image: ehacke/datastore-emulator:latest
