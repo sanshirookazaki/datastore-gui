@@ -116,9 +116,7 @@ function Index() {
   const [selectedRowIds, setSelectedRowIds] = useState([] as any);
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
 
-  const Axios = axios.create({
-    baseURL: "http://localhost:" + process.env.PORT,
-  });
+  const Axios = axios.create();
 
   const selectNamespace = (namespace: string) => {
     setNamespace(namespace);
